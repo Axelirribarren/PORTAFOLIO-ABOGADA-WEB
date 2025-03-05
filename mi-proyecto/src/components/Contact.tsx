@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, X, Mail,Facebook, Instagram } from "lucide-react";
+import { Phone, X, Mail,Facebook, Instagram, MessageSquareMore } from "lucide-react";
 
 const Contact = () => {
   const [isPopupVisible, setIsPopupVisible] = useState(false);
@@ -21,8 +21,8 @@ const Contact = () => {
           conmigo.
         </p>
 
-        <div className="bg-white shadow-lg rounded-2xl p-8 border border-gray-300">
-          <div className="flex justify-center gap-6 mt-8">
+        <div className="bg-white shadow-lg rounded-2xl border border-gray-300">
+          <div className="flex justify-center gap-10 mt-8">
             <a
               href="https://wa.me/XXXXXXXXXXX"
               target="_blank"
@@ -47,7 +47,7 @@ const Contact = () => {
           </div>
 
           {/*FORMULARIO*/}
-          <form className="mt-6 flex flex-col gap-4">
+          <form className="mt-6 flex flex-col gap-5 px-10 py-10">
             <input
               type="text"
               placeholder="Nombre"
@@ -83,7 +83,7 @@ const Contact = () => {
         onClick={handlePopupToggle}
         className="fixed bottom-6 right-6 bg-gray-900 text-white p-6 rounded-lg shadow-lg hover:bg-gray-500 transition cursor-pointer flex items-center space-x-3"
       >
-        <Phone className="w-6 h-6" />
+        <MessageSquareMore className="w-6 h-6" />
         <div className="flex flex-col">
           <span className="text-sm font-semibold">¿Necesitas ayuda?</span>
           <span className="text-xs text-white opacity-80">
