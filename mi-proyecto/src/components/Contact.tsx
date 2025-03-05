@@ -24,21 +24,21 @@ const Contact = () => {
         <div className="bg-white shadow-lg rounded-2xl border border-gray-300">
           <div className="flex justify-center gap-10 mt-8">
             <a
-              href="https://wa.me/XXXXXXXXXXX"
+              href="https://wa.me/3434802056"
               target="_blank"
               className="text-green-600 hover:text-green-800 transition"
             >
               <Phone className="w-8 h-8" />
             </a>
             <a
-              href="https://www.instagram.com/tuusuario"
+              href="https://www.instagram.com/abogada.irribarren?igsh=MXNnNW05OTE4cTE0bw=="
               target="_blank"
               className="text-pink-600 hover:text-pink-800 transition"
             >
               <Instagram className="w-8 h-8" />
             </a>
             <a
-              href="https://www.facebook.com/tuusuario"
+              href="https://www.facebook.com/profile.php?id=100004425076422"
               target="_blank"
               className="text-blue-600 hover:text-blue-800 transition"
             >
@@ -81,7 +81,7 @@ const Contact = () => {
       {/*AYUDA*/}
       <a
         onClick={handlePopupToggle}
-        className="fixed bottom-6 right-6 bg-gray-900 text-white p-6 rounded-lg shadow-lg hover:bg-gray-500 transition cursor-pointer flex items-center space-x-3"
+        className="fixed bottom-5 right-5 bg-gray-900 text-white p-4 rounded-lg shadow-lg hover:bg-gray-500 transition cursor-pointer flex items-center space-x-3"
       >
         <MessageSquareMore className="w-6 h-6" />
         <div className="flex flex-col">
