@@ -1,44 +1,60 @@
-const Services = () => {
-  return (
-    <section id="servicios" className="bg-[#f4f4f4] py-16 px-6">
-      <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-12">
-          Áreas de Especialización
-        </h2>
+import { Scale, FileText, Users, HeartHandshake, Gavel } from "lucide-react";
 
-        {/*TARJETAS*/}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Divorcios",
-              desc: "Acompañamiento legal en procesos de divorcio, garantizando acuerdos justos y soluciones efectivas para ambas partes.",
-            },
-            {
-              title: "Sucesiones",
-              desc: "Gestión integral de herencias y testamentos, asegurando la correcta distribución del patrimonio familiar.",
-            },
-            {
-              title: "Trámites Administrativos",
-              desc: "Asesoría en trámites legales familiares, como adopciones, tutelas y cambios de régimen patrimonial.",
-            },
-            {
-              title: "Alimentos",
-              desc: "Defensa y gestión de trámites alimentarios, velando por el bienestar y los derechos de los menores.",
-            },
-            {
-              title: "Contratos en General",
-              desc: "Redacción y revisión de acuerdos familiares, como convenios de convivencia, capitulaciones matrimoniales y más.",
-            },
-          ].map((service, index) => (
+const Services = () => {
+  const services = [
+    {
+      title: "Divorcios",
+      desc: "Acompañamiento legal en procesos de divorcio, garantizando acuerdos justos y soluciones efectivas para ambas partes.",
+      icon: <HeartHandshake className="w-10 h-10 text-yellow-500" />,
+    },
+    {
+      title: "Sucesiones",
+      desc: "Gestión integral de herencias y testamentos, asegurando la correcta distribución del patrimonio familiar.",
+      icon: <FileText className="w-10 h-10 text-yellow-500" />,
+    },
+    {
+      title: "Trámites Administrativos",
+      desc: "Asesoría en trámites legales familiares, como adopciones, tutelas y cambios de régimen patrimonial.",
+      icon: <Scale className="w-10 h-10 text-yellow-500" />,
+    },
+    {
+      title: "Alimentos",
+      desc: "Defensa y gestión de trámites alimentarios, velando por el bienestar y los derechos de los menores.",
+      icon: <Users className="w-10 h-10 text-yellow-500" />,
+    },
+    {
+      title: "Contratos en General",
+      desc: "Redacción y revisión de acuerdos familiares, como convenios de convivencia, capitulaciones matrimoniales y más.",
+      icon: <Gavel className="w-10 h-10 text-yellow-500" />,
+    },
+  ];
+
+  return (
+    <section id="servicios" className="bg-slate-50 py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">
+            Áreas de Práctica
+          </h2>
+          <div className="w-24 h-1 bg-yellow-500 mx-auto rounded-full"></div>
+          <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+            Soluciones legales integrales adaptadas a sus necesidades específicas.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white p-6 sm:p-8 rounded-xl shadow-md border border-gray-300 
-                         hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
             >
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+              <div className="mb-6 p-4 bg-slate-50 rounded-full inline-block group-hover:bg-yellow-50 transition-colors duration-300">
+                {service.icon}
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-yellow-600 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-600 font-medium leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {service.desc}
               </p>
             </div>

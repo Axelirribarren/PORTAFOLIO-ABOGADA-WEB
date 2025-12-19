@@ -1,17 +1,32 @@
 @import "tailwindcss";
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-
-  background-color: #f4f4f2;
-
- 
+  --color-primary: #1e293b;
+  /* Slate 800 - Navy-ish */
+  --color-secondary: #ca8a04;
+  /* Yellow 600 - Gold-ish */
+  --color-accent: #f8fafc;
+  /* Slate 50 - Light background */
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 
-
-html {
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
   scroll-behavior: smooth;
 }
 
+@layer utilities {
+  .text-gold {
+    color: var(--color-secondary);
+  }
 
+  .bg-gold {
+    background-color: var(--color-secondary);
+  }
 
-
+  .border-gold {
+    border-color: var(--color-secondary);
+  }
+}

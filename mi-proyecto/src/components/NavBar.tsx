@@ -1,75 +1,99 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Scale } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    let prevScrollPos = window.scrollY;
-
     const handleScroll = () => {
-      const currentScrollPos = window.scrollY;
-      setVisible(currentScrollPos < 10 || currentScrollPos < prevScrollPos);
-      prevScrollPos = currentScrollPos;
+      setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const navLinks = [
+    { name: "Inicio", href: "#inicio" },
+    { name: "Servicios", href: "#servicios" },
+    { name: "Trayectoria", href: "#trayectoria" },
+    { name: "Contacto", href: "#contacto" },
+  ];
+
   return (
     <nav
-      className={`bg-[#f4f4f2] text-gray-900 shadow-md fixed top-0 left-0 w-full z-50 transition-all duration-500 ease-in-out 
-        ${visible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"}`}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-slate-900/95 backdrop-blur-md shadow-lg py-4"
+          : "bg-transparent py-6"
+      }`}
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 lg:px-12 py-4">
-        <a
-          href="/"
-          className="font-bold text-3xl italic text-gray-900 tracking-wide hover:opacity-80 transition duration-300"
-        >
-          Estudio Jurídico
+      <div className="container mx-auto px-6 flex justify-between items-center">
+        {/* Logo */}
+        <a href="#" className="flex items-center gap-2 group">
+          <div className="bg-yellow-600 p-2 rounded-lg group-hover:bg-yellow-500 transition-colors">
+            <Scale className="w-6 h-6 text-white" />
+          </div>
+          <span className={`text-xl font-bold tracking-wide ${scrolled ? 'text-white' : 'text-white'}`}>
+            ESTUDIO <span className="text-yellow-500">IRRIBARREN</span>
+          </span>
         </a>
 
-        {/*MENU*/}
-        <div className="hidden md:flex space-x-8">
-          {["Inicio", "Servicios", "Sobre mí", "Contacto"].map((item, index) => (
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
             <a
-              key={index}
-              href={`#${item.toLowerCase().replace(" ", "")}`}
-              className="relative font-semibold text-gray-900 hover:text-black transition duration-300
-                after:content-[''] after:absolute after:w-0 after:h-[2px] after:bottom-[-4px] after:left-0 after:bg-gray-900 
-                hover:after:w-full after:transition-all after:duration-300"
+              key={link.name}
+              href={link.href}
+              className="text-slate-300 hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider"
             >
-              {item}
+              {link.name}
             </a>
           ))}
+          <a
+            href="#contacto"
+            className="bg-yellow-600 hover:bg-yellow-700 text-white px-6 py-2 rounded-full font-semibold transition-all hover:shadow-lg hover:shadow-yellow-600/20 text-sm"
+          >
+            Agendar Cita
+          </a>
         </div>
 
-        {/*CELULAR*/}
+        {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-900 focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-white focus:outline-none"
+          onClick={toggleMenu}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
         </button>
       </div>
 
-      {/*DESPLEGABLE*/}
+      {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden bg-[#f4f4f2] fixed w-full top-16 left-0 px-6 py-4 shadow-lg transition-all duration-500 ease-in-out
-          ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 bg-slate-900/98 z-40 flex flex-col items-center justify-center space-y-8 transition-transform duration-300 md:hidden ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
-        {["Inicio", "Servicios", "Sobre mí", "Contacto"].map((item, index) => (
+        {navLinks.map((link) => (
           <a
-            key={index}
-            href={`#${item.toLowerCase().replace(" ", "")}`}
-            className="block text-gray-900 text-center py-2 font-semibold hover:text-black transition duration-300 border-b border-gray-300"
-            onClick={() => setIsOpen(false)}
+            key={link.name}
+            href={link.href}
+            onClick={toggleMenu}
+            className="text-2xl text-white hover:text-yellow-500 font-semibold transition-colors"
           >
-            {item}
+            {link.name}
           </a>
         ))}
+        <a
+          href="#contacto"
+          onClick={toggleMenu}
+          className="bg-yellow-600 text-white px-8 py-3 rounded-full text-lg font-semibold"
+        >
+          Agendar Cita
+        </a>
       </div>
     </nav>
   );
