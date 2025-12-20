@@ -66,18 +66,27 @@ const NavBar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 animate-fade-in-down">
-          <div className="flex flex-col py-4 px-6 space-y-4">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 animate-fade-in-down">
+          <div className="flex flex-col py-6 px-6 space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-slate-700 hover:text-amber-600 font-medium py-2 border-b border-gray-50 last:border-none"
+                className="text-slate-700 hover:text-amber-600 hover:bg-slate-50 font-medium py-3 px-4 rounded-lg transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </a>
             ))}
+            <div className="pt-4 mt-2 border-t border-gray-100">
+               <a 
+                 href="#contacto"
+                 className="block w-full text-center bg-slate-900 text-white font-medium py-3 rounded-lg hover:bg-slate-800 transition-colors"
+                 onClick={() => setIsOpen(false)}
+               >
+                 Agendar Consulta
+               </a>
+            </div>
           </div>
         </div>
       )}

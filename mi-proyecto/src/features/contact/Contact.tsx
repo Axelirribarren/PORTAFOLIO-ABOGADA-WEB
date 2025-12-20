@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Phone, Mail, Facebook, Instagram, Clock, MapPin, Send, AlertCircle } from "lucide-react";
+import { Mail, Facebook, Instagram, Clock, MapPin, Send, AlertCircle } from "lucide-react";
 import { useBusinessHours } from "../../hooks/useBusinessHours";
 import { BUSINESS_HOURS, CONTACT_INFO } from "../../utils/constants";
 import { Button } from "../../components/ui/Button";
@@ -35,7 +35,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contacto" className="py-20 bg-slate-50">
+    <section id="contacto" className="py-12 lg:py-20 bg-slate-50">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-12">
           
@@ -94,7 +94,7 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="lg:w-2/3">
-            <Card className="p-8 lg:p-10">
+            <Card className="p-6 lg:p-10">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
