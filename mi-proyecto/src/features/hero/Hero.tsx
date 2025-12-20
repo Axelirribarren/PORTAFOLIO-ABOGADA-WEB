@@ -18,17 +18,18 @@ const Hero = () => {
           <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6 lg:space-y-8 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-slate-100 text-slate-600 text-xs md:text-sm font-medium mx-auto lg:mx-0 max-w-full">
               <Scale className="w-4 h-4 text-amber-600 flex-shrink-0" />
-              <span className="truncate">Especialista en Derecho Civil y Laboral</span>
+              <span className="truncate">Derecho de Familia y Divorcios</span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-slate-900 leading-tight">
-              Justicia y Compromiso <br />
-              <span className="text-amber-600">A Su Servicio</span>
+              Vanesa S. Irribarren <br />
+              <span className="text-amber-600 text-3xl md:text-4xl lg:text-5xl block mt-2">Abogada Especializada</span>
             </h1>
             
             <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Brindamos asesoramiento jurídico integral con un enfoque humano y profesional. 
-              Su tranquilidad y la defensa de sus derechos son nuestra prioridad absoluta.
+              Mi compromiso es ofrecer soluciones legales efectivas con un enfoque humano y compasivo. 
+              Cada caso es único, por lo que brindo una atención personalizada, asegurando que mis clientes 
+              se sientan escuchados y comprendidos en todo momento.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
@@ -36,7 +37,7 @@ const Hero = () => {
                 Agendar Consulta
               </Button>
               <Button variant="outline" size="lg" className="w-full sm:w-auto" onClick={() => document.getElementById('servicios')?.scrollIntoView({ behavior: 'smooth' })}>
-                Nuestros Servicios
+                Áreas de Práctica
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </div>
@@ -48,23 +49,23 @@ const Hero = () => {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full" />
-                <span>Confidencialidad Absoluta</span>
+                <span>Enfoque Humano</span>
               </div>
             </div>
           </div>
 
           {/* Image/Visual Content */}
           <div className="w-full lg:w-1/2 relative animate-fade-in-left delay-200 mt-8 lg:mt-0">
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] lg:aspect-auto">
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] lg:aspect-auto max-w-md mx-auto lg:max-w-full">
               <img
-                src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Abogada profesional en su despacho"
+                src="/perfil.png"
+                alt="Vanesa S. Irribarren"
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
             </div>
             
-            {/* Floating Card - Visible on mobile now but positioned differently */}
+            {/* Floating Card */}
             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:-left-6 lg:bottom-10 bg-white p-4 lg:p-6 rounded-xl shadow-xl border border-slate-100 w-max max-w-[90%]">
               <div className="flex items-center gap-4">
                 <div className="bg-amber-100 p-3 rounded-full text-amber-600">

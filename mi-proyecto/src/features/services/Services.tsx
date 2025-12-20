@@ -1,36 +1,31 @@
-import { Scale, Gavel, FileText, Users, Briefcase, ShieldCheck } from "lucide-react";
+import { Users, FileText, Scroll, Baby, FileSignature } from "lucide-react";
 import { Card } from "../../components/ui/Card";
 
 const services = [
   {
-    title: "Derecho Civil",
-    description: "Asesoramiento en contratos, obligaciones, daños y perjuicios, y sucesiones.",
-    icon: Scale,
-  },
-  {
-    title: "Derecho Laboral",
-    description: "Defensa de trabajadores y empleadores, despidos, indemnizaciones y accidentes laborales.",
-    icon: Briefcase,
-  },
-  {
-    title: "Derecho de Familia",
-    description: "Divorcios, cuota alimentaria, régimen de comunicación y filiación.",
+    title: "Divorcios",
+    description: "Acompañamiento legal en procesos de divorcio, garantizando acuerdos justos y soluciones efectivas para ambas partes.",
     icon: Users,
   },
   {
-    title: "Derecho Penal",
-    description: "Defensa técnica en procesos penales, excarcelaciones y asesoramiento preventivo.",
-    icon: Gavel,
+    title: "Sucesiones",
+    description: "Gestión integral de herencias y testamentos, asegurando la correcta distribución del patrimonio familiar.",
+    icon: Scroll,
   },
   {
-    title: "Contratos",
-    description: "Redacción y revisión de contratos comerciales, alquileres y compraventas.",
+    title: "Trámites Administrativos",
+    description: "Asesoría en trámites legales familiares, como adopciones, tutelas y cambios de régimen patrimonial.",
     icon: FileText,
   },
   {
-    title: "Amparos y Salud",
-    description: "Reclamos ante obras sociales y prepagas, amparos por salud y discapacidad.",
-    icon: ShieldCheck,
+    title: "Alimentos",
+    description: "Defensa y gestión de trámites alimentarios, velando por el bienestar y los derechos de los menores.",
+    icon: Baby,
+  },
+  {
+    title: "Contratos en General",
+    description: "Redacción y revisión de acuerdos familiares, como convenios de convivencia, capitulaciones matrimoniales y más.",
+    icon: FileSignature,
   },
 ];
 
@@ -39,12 +34,12 @@ const Services = () => {
     <section id="servicios" className="py-12 lg:py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-sm font-bold text-amber-600 uppercase tracking-widest mb-2">Áreas de Práctica</h2>
+          <h2 className="text-sm font-bold text-amber-600 uppercase tracking-widest mb-2">Servicios Legales</h2>
           <h3 className="text-3xl md:text-4xl font-playfair font-bold text-slate-900 mb-6">
-            Soluciones Legales Integrales
+            Áreas de Especialización
           </h3>
           <p className="text-slate-600 text-lg">
-            Ofrecemos un servicio jurídico de excelencia, abarcando diversas ramas del derecho para proteger sus intereses con profesionalismo y dedicación.
+            Ofrecemos un servicio jurídico de excelencia, enfocado en resolver sus necesidades familiares y patrimoniales.
           </p>
         </div>
 
