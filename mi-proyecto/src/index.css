@@ -1,21 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 @import "tailwindcss";
 
-<<<<<<< HEAD
-:root {
+@theme {
   --color-primary: #1e293b;
   /* Slate 800 - Navy-ish */
   --color-secondary: #ca8a04;
   /* Yellow 600 - Gold-ish */
   --color-accent: #f8fafc;
   /* Slate 50 - Light background */
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+}
+
+:root {
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-sans);
   background-color: var(--color-accent);
   color: var(--color-primary);
-  scroll-behavior: smooth;
 }
 
 @layer utilities {
@@ -31,27 +43,6 @@ body {
     border-color: var(--color-secondary);
   }
 }
-=======
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
-
-:root {
-  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  color-scheme: light;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.font-playfair {
-  font-family: 'Playfair Display', serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
 
 /* Custom Animations */
 @keyframes fadeInDown {
@@ -59,6 +50,7 @@ html {
     opacity: 0;
     transform: translate3d(0, -20px, 0);
   }
+
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -70,6 +62,7 @@ html {
     opacity: 0;
     transform: translate3d(0, 20px, 0);
   }
+
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -81,6 +74,7 @@ html {
     opacity: 0;
     transform: translate3d(20px, 0, 0);
   }
+
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
@@ -92,34 +86,41 @@ html {
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-.animate-fade-in-down {
-  animation: fadeInDown 0.5s ease-out forwards;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.animate-fade-in-left {
-  animation: fadeInLeft 0.8s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.3s ease-out forwards;
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
->>>>>>> 3a10cc3481a204d541a47310f4597c4ae851c58d
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-in-down {
+    animation: fadeInDown 0.5s ease-out forwards;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+}

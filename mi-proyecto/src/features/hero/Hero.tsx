@@ -56,27 +56,16 @@ const Hero = () => {
 
           {/* Image/Visual Content */}
           <div className="w-full lg:w-1/2 relative animate-fade-in-left delay-200 mt-8 lg:mt-0">
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] lg:aspect-auto max-w-md mx-auto lg:max-w-full">
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[3/4] max-w-sm mx-auto lg:max-w-md">
               <img
-                src="/perfil.png"
+                src="/profile.png"
                 alt="Vanesa S. Irribarren"
                 className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
             </div>
             
-            {/* Floating Card */}
-            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 lg:translate-x-0 lg:-left-6 lg:bottom-10 bg-white p-4 lg:p-6 rounded-xl shadow-xl border border-slate-100 w-max max-w-[90%]">
-              <div className="flex items-center gap-4">
-                <div className="bg-amber-100 p-3 rounded-full text-amber-600">
-                  <Scale className="w-5 h-5 lg:w-6 lg:h-6" />
-                </div>
-                <div>
-                  <p className="text-xs lg:text-sm text-slate-500 uppercase tracking-wider">Trayectoria</p>
-                  <p className="text-lg lg:text-xl font-bold text-slate-900">Excelencia Profesional</p>
-                </div>
-              </div>
-            </div>
+            
           </div>
 
         </div>
