@@ -22,19 +22,19 @@ const NavBar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white/90 backdrop-blur-md shadow-md py-3"
           : "bg-transparent py-5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group">
           <div className="bg-slate-900 text-white p-2 rounded-lg group-hover:bg-slate-800 transition-colors">
-            <Scale className="w-6 h-6" />
+            <Scale className="w-5 h-5 md:w-6 md:h-6" />
           </div>
-          <span className={`text-xl font-playfair font-bold tracking-wide ${scrolled ? 'text-slate-900' : 'text-slate-900'}`}>
+          <span className={`text-lg md:text-xl font-playfair font-bold tracking-wide ${scrolled ? 'text-slate-900' : 'text-slate-900'}`}>
             Estudio Irribarren
           </span>
         </a>
