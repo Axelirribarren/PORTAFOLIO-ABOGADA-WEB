@@ -1,4 +1,4 @@
-import { Users, FileText, Scroll, Baby, FileSignature } from "lucide-react";
+import { Users, FileText, Scroll, Baby, FileSignature, Globe } from "lucide-react";
 import { Card } from "../../components/ui/Card";
 
 const services = [
@@ -26,6 +26,11 @@ const services = [
     title: "Contratos en General",
     description: "Redacción y revisión de acuerdos familiares, como convenios de convivencia, capitulaciones matrimoniales y más.",
     icon: FileSignature,
+  },
+  {
+    title: "Atención Legal Virtual",
+    description: "Asesoramiento profesional sin barreras geográficas, mediante videollamadas seguras y con la misma cercanía de siempre.",
+    icon: Globe,
   },
 ];
 
