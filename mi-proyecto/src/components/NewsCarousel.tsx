@@ -9,7 +9,7 @@ const NewsCarousel = () => {
     const scroll = (direction: 'left' | 'right') => {
         if (scrollContainerRef.current) {
             const { current } = scrollContainerRef;
-            const scrollAmount = 350; // Adjust based on card width + gap
+            const scrollAmount = 340; // Adjust based on card width + gap
             if (direction === 'left') {
                 current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
             } else {
@@ -19,7 +19,7 @@ const NewsCarousel = () => {
     };
 
     return (
-        <section className="py-20 bg-white">
+        <section className="w-full max-w-full py-20 bg-white overflow-hidden">
             <div className="container mx-auto px-6">
                 
                 {/* Header */}
@@ -68,7 +68,7 @@ const NewsCarousel = () => {
                     {noticias.map((noticia) => (
                         <div 
                             key={noticia.slug} 
-                            className="min-w-[300px] md:min-w-[400px] snap-start"
+                            className="min-w-[260px] md:min-w-[320px] snap-start"
                         >
                              <Link to={`/noticias/${noticia.slug}`} className="group block h-full">
                                 <article className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg hover:border-amber-200 transition-all duration-300 h-full flex flex-col">
