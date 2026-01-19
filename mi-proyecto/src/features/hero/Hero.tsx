@@ -6,14 +6,14 @@ const Hero = () => {
 
     return (
         <section
-            className="relative min-h-[90vh] flex items-center bg-[#FDFCF8] text-slate-800 overflow-hidden"
+            className="w-full max-w-full relative min-h-[90vh] flex items-center bg-[#FDFCF8] text-slate-800 overflow-hidden"
             id="inicio"
         >
             {/* Background Decor */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-orange-50/50 -skew-x-12 transform origin-top translate-x-32 md:block hidden"></div>
-            <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2 hidden md:block"></div>
             
-            <div className="container mx-auto px-6 py-12 lg:py-20 relative z-10">
+            <div className="container mx-auto px-4 lg:px-6 py-12 lg:py-20 relative z-10">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     
                     {/* Left Column: Content */}
@@ -27,7 +27,7 @@ const Hero = () => {
 
                         {/* Headings */}
                         <div className="space-y-4">
-                            <h1 className="text-5xl lg:text-7xl font-playfair font-bold text-slate-900 leading-tight">
+                            <h1 className="text-4xl lg:text-7xl font-playfair font-bold text-slate-900 leading-tight">
                                 Vanesa S. <br/><span className="text-yellow-600 italic">Irribarren</span>
                             </h1>
                             <p className="text-xl text-slate-500 font-medium">
@@ -80,7 +80,7 @@ const Hero = () => {
                     </div>
 
                     {/* Right Column: Image */}
-                    <div className="flex-1 relative animate-fade-in-left lg:animate-fade-in pl-8">
+                    <div className="flex-1 relative animate-fade-in-left lg:animate-fade-in lg:pl-8 mt-12 lg:mt-0">
                         <div className="relative w-full max-w-[500px] mx-auto">
                             {/* Abstract Shapes/Blob Background */}
                             <div className="absolute inset-0 bg-[#E8E6D9] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] rotate-3 scale-110 shadow-inner z-0"></div>

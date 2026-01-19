@@ -7,8 +7,8 @@ const AboutMe = () => {
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
           {/* Image */}
-          <div className="flex-1 relative order-2 lg:order-1">
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="w-full max-w-sm lg:w-1/3 relative order-2 lg:order-1 mx-auto">
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl aspect-[3/4] lg:aspect-auto">
               <img 
                 src="/profile.png" 
                 alt="Vanesa S. Irribarren" 
