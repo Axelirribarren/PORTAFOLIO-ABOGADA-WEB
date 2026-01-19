@@ -17,7 +17,7 @@ const Hero = () => {
         {/* Text Content */}
         <div className="flex-1 text-center md:text-left">
           <div className="inline-block mb-4 px-4 py-1 rounded-full border border-yellow-600/50 bg-yellow-600/10 text-yellow-500 text-sm font-medium tracking-wider uppercase">
-            Abogada Especialista
+            Abogada
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Vanesa S. <span className="text-yellow-500">Irribarren</span>

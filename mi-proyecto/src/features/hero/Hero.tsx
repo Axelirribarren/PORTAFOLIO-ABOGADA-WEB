@@ -23,7 +23,7 @@ const Hero = () => {
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-slate-900 leading-tight">
               Vanesa S. Irribarren <br />
-              <span className="text-amber-600 text-3xl md:text-4xl lg:text-5xl block mt-2">Abogada Especializada</span>
+              <span className="text-amber-600 text-3xl md:text-4xl lg:text-5xl block mt-2">Abogada</span>
             </h1>
             
             <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
