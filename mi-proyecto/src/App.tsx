@@ -1,25 +1,16 @@
-import NavBar from './components/layout/NavBar';
-import Hero from './features/hero/Hero';
-import Services from './features/services/Services';
-import Portfolio from './components/Portfolio';
-import Contact from './features/contact/Contact';
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import NewsPage from './pages/NewsPage';
+import NewsDetailPage from './pages/NewsDetailPage';
 import './App.css';
-
-import Footer from './components/layout/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-amber-200 selection:text-amber-900">
-      <NavBar />
-      <main>
-        <Hero />
-        <Services />
-        <Portfolio />
-        <Contact />
-      </main>
-      
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/noticias" element={<NewsPage />} />
+      <Route path="/noticias/:slug" element={<NewsDetailPage />} />
+    </Routes>
   );
 }
 

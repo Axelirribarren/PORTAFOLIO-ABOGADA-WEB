@@ -14,10 +14,11 @@ const NavBar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Inicio", href: "#inicio" },
-    { name: "Servicios", href: "#servicios" },
-    { name: "Sobre Mí", href: "#sobre-mi" },
-    { name: "Contacto", href: "#contacto" },
+    { name: "Inicio", href: "/#inicio" },
+    { name: "Servicios", href: "/#servicios" },
+    { name: "Sobre Mí", href: "/#sobre-mi" },
+    { name: "Noticias", href: "/noticias" },
+    { name: "Contacto", href: "/#contacto" },
   ];
 
   return (
