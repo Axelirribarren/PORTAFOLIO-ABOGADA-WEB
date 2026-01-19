@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
-import { noticias } from "../../lib/noticias";
-import NavBar from "../../components/layout/NavBar";
-import Footer from "../../components/layout/Footer";
+import { noticias } from "../lib/noticias";
+import NavBar from "../components/layout/NavBar";
+import Footer from "../components/layout/Footer";
 import { ArrowLeft } from "lucide-react";
 
 export default function NewsDetailPage() {

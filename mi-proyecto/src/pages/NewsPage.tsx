@@ -1,7 +1,7 @@
-import { noticias } from "../../lib/noticias";
+import { noticias } from "../lib/noticias";
 import { Link } from "react-router-dom";
-import NavBar from "../../components/layout/NavBar";
-import Footer from "../../components/layout/Footer";
+import NavBar from "../components/layout/NavBar";
+import Footer from "../components/layout/Footer";
 
 export default function NewsPage() {
   return (

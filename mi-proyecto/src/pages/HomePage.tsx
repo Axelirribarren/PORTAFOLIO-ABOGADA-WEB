@@ -3,6 +3,8 @@ import Hero from '../features/hero/Hero';
 import Services from '../features/services/Services';
 import Portfolio from '../components/Portfolio';
 import Contact from '../features/contact/Contact';
+import AboutMe from '../features/about/AboutMe';
+import NewsCarousel from '../components/NewsCarousel';
 import Footer from '../components/layout/Footer';
 
 function HomePage() {
@@ -12,7 +14,9 @@ function HomePage() {
       <main>
         <Hero />
         <Services />
+        <AboutMe />
         <Portfolio />
+        <NewsCarousel />
         <Contact />
       </main>
       
