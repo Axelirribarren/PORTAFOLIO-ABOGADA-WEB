@@ -33,7 +33,7 @@ const NavBar = () => {
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group">
           <img 
-            src="/logo-negro.png" 
+            src="./logo-negro.png" 
             alt="Estudio Irribarren" 
             className="h-15 w-auto object-contain"
           />
