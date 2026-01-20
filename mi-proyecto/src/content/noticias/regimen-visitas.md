@@ -5,7 +5,7 @@ subtitle: "Cómo lograr acuerdos justos para el bienestar de los hijos"
 date: "2024-09-22"
 time: "14:15"
 excerpt: "El bienestar de los hijos es la prioridad. Analizamos cómo establecer un régimen de comunicación fluido y una cuota justa."
-cover: "logo-negro.png"
+cover: "/logo-negro.png"
 ---
 
 Establecer un régimen de visitas adecuado y una cuota alimentaria justa es fundamental para el bienestar de los hijos tras una separación.
