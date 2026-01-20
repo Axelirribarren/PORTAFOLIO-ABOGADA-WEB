@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Scale } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,9 +32,11 @@ const NavBar = () => {
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group">
-          <div className="bg-slate-900 text-white p-2 rounded-lg group-hover:bg-slate-800 transition-colors">
-            <Scale className="w-5 h-5 md:w-6 md:h-6" />
-          </div>
+          <img 
+            src="/logo-negro.png" 
+            alt="Estudio Irribarren" 
+            className="h-15 w-auto object-contain"
+          />
           <span className={`text-lg md:text-xl font-playfair font-bold tracking-wide ${scrolled ? 'text-slate-900' : 'text-slate-900'}`}>
             Estudio Irribarren
           </span>

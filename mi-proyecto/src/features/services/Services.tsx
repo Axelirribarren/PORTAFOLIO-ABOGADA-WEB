@@ -29,7 +29,7 @@ const services = [
   },
   {
     title: "Atención Legal Virtual",
-    description: "Asesoramiento profesional sin barreras geográficas, mediante videollamadas seguras y con la misma cercanía de siempre.",
+    description: "Asesoramiento profesional mediante videollamadas seguras y con la misma cercanía de siempre.",
     icon: Globe,
   },
 ];

@@ -22,7 +22,7 @@ const Hero = () => {
                         {/* Badge */}
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-yellow-600/20 shadow-sm text-yellow-700 text-sm font-medium tracking-wide mx-auto lg:mx-0">
                             <Scale className="w-4 h-4" />
-                            <span>Especialista en Derecho de Familia y Divorcios</span>
+                            <span>Derecho de Familia y Divorcios</span>
                         </div>
 
                         {/* Headings */}

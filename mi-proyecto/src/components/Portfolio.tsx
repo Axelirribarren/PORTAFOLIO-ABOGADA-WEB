@@ -9,8 +9,8 @@ const Portfolio = () => {
     },
     {
       icon: <Globe className="w-8 h-8 text-amber-600" />,
-      title: "Sin Fronteras",
-      description: "Atención global",
+      title: "Entre Ríos",
+      description: "Atención local",
     },
     {
       icon: <Calendar className="w-8 h-8 text-amber-600" />,
@@ -31,8 +31,8 @@ const Portfolio = () => {
               <span>Atención Legal Virtual</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-              Asesoramiento profesional <br />
-              <span className="text-amber-600">sin barreras geográficas</span>
+              Asesoramiento<br />
+              <span className="text-amber-600">Profesional</span>
             </h2>
             
             <div className="space-y-4 text-slate-600 text-lg leading-relaxed mb-8">
