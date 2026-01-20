@@ -3,6 +3,7 @@ import { noticias } from "../lib/noticias";
 import NavBar from "../components/layout/NavBar";
 import Footer from "../components/layout/Footer";
 import { ArrowLeft } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 export default function NewsDetailPage() {
   const { slug } = useParams();
@@ -45,14 +46,9 @@ export default function NewsDetailPage() {
                 </p>
             </div>
 
-            {/* Content Iframe */}
-            <div className="w-full bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
-                <iframe
-                    src={`/noticias/${noticia.slug}/index.html`}
-                    className="w-full border-none"
-                    style={{ minHeight: "80vh" }}
-                    title={noticia.title}
-                />
+            {/* Content Markdown */}
+            <div className="prose prose-slate prose-lg max-w-none prose-headings:font-playfair prose-headings:text-slate-900 prose-p:text-slate-600 prose-a:text-amber-600 hover:prose-a:text-amber-700 prose-img:rounded-xl prose-img:shadow-sm">
+                <ReactMarkdown>{noticia.content}</ReactMarkdown>
             </div>
         </article>
       </main>
