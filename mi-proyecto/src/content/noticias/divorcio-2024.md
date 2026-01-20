@@ -5,7 +5,7 @@ subtitle: "Aspectos legales que toda familia debe conocer"
 date: "2024-10-15"
 time: "10:30"
 excerpt: "Un repaso claro y actualizado sobre los cambios legales en materia de divorcio. Todo lo que necesitas saber para proteger tus derechos."
-cover: "logo-negro.png"
+cover: "/logo-negro.png"
 ---
 
 El derecho de familia está en constante evolución. En este artículo, exploraremos los cambios más significativos y cómo afectan a los procesos de divorcio en la actualidad.

@@ -5,7 +5,7 @@ subtitle: "Tendencias y modificaciones clave en los procedimientos actuales"
 date: "2024-01-20"
 time: "09:00"
 excerpt: "Este artículo analiza las tendencias y modificaciones clave que definen los procedimientos actuales, con foco en el consenso y los aspectos patrimoniales."
-cover: "logo-negro.png"
+cover: "/logo-negro.png"
 ---
 
 
