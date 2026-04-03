@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Mail, Facebook, Instagram, Clock, MapPin, Send, AlertCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { Mail, Facebook, Instagram, Clock, MapPin, Send, AlertCircle, Loader2 } from "lucide-react";
 import { useBusinessHours } from "../../hooks/useBusinessHours";
 import { BUSINESS_HOURS, CONTACT_INFO } from "../../utils/constants";
 import { Button } from "../../components/ui/Button";
-import { Card } from "../../components/ui/Card";
 
 const Contact = () => {
   const isOpen = useBusinessHours();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,7 +20,7 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!isOpen) {
@@ -27,78 +28,105 @@ const Contact = () => {
       return;
     }
 
+    setIsSubmitting(true);
+    
+    // Simular un pequeño delay para feedback visual premium
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
     const { name, email, message } = formData;
     const whatsappMessage = `Hola, soy ${name}. Mi email es ${email}. Consulta: ${message}`;
     const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
     
     window.open(whatsappUrl, "_blank");
+    setIsSubmitting(false);
   };
 
   return (
-    <section id="contacto" className="py-12 lg:py-20 bg-slate-50">
+    <section id="contacto" className="py-24 bg-slate-50 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-600/20 to-transparent"></div>
+      
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-12">
+        <div className="flex flex-col lg:flex-row gap-16">
           
           {/* Contact Info */}
-          <div className="lg:w-1/3 space-y-8">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:w-1/3 space-y-10"
+          >
             <div>
-              <h2 className="text-sm font-bold text-amber-600 uppercase tracking-widest mb-2">Contacto</h2>
-              <h3 className="text-3xl md:text-4xl font-playfair font-bold text-slate-900 mb-6">
+              <h2 className="text-sm font-bold text-yellow-600 uppercase tracking-widest mb-2">Contacto</h2>
+              <h3 className="text-4xl md:text-5xl font-playfair font-bold text-slate-900 mb-6">
                 Hablemos de su Caso
               </h3>
-              <p className="text-slate-600 mb-8">
+              <p className="text-xl text-slate-600 leading-relaxed">
                 Estamos aquí para escucharle y brindarle la mejor estrategia legal. 
                 Contáctenos hoy mismo para una evaluación inicial.
               </p>
             </div>
 
             <div className="space-y-6">
-              <Card className="flex items-start gap-4 p-5" hoverEffect={false}>
-                <div className="bg-amber-100 p-3 rounded-full text-amber-600">
+              <div className="flex items-start gap-5 p-6 bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div className="bg-yellow-100 p-4 rounded-2xl text-yellow-600 border border-yellow-200">
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">Horario de Atención</h4>
-                  <p className="text-slate-600 text-sm">Lunes a Viernes</p>
-                  <p className="text-slate-600 text-sm">{BUSINESS_HOURS.start}:00 - {BUSINESS_HOURS.end}:00 hs</p>
-                  <div className={`mt-2 inline-flex items-center text-xs font-bold px-2 py-1 rounded-full ${isOpen ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                  <h4 className="font-bold text-slate-900 text-lg">Horario de Atención</h4>
+                  <p className="text-slate-600">Lunes a Viernes</p>
+                  <p className="text-slate-900 font-medium">{BUSINESS_HOURS.start}:00 - {BUSINESS_HOURS.end}:00 hs</p>
+                  <div className={`mt-3 inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full ${isOpen ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${isOpen ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></span>
                     {isOpen ? 'ABIERTO AHORA' : 'CERRADO AHORA'}
                   </div>
                 </div>
-              </Card>
+              </div>
 
-              <Card className="flex items-start gap-4 p-5" hoverEffect={false}>
-                <div className="bg-slate-100 p-3 rounded-full text-slate-900">
+              <div className="flex items-start gap-5 p-6 bg-white rounded-3xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div className="bg-slate-100 p-4 rounded-2xl text-slate-900 border border-slate-200">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900">Ubicación</h4>
-                  <p className="text-slate-600 text-sm">Paraná, Entre Ríos</p>
-                  <p className="text-slate-600 text-sm">Argentina</p>
+                  <h4 className="font-bold text-slate-900 text-lg">Ubicación</h4>
+                  <p className="text-slate-600">Paraná, Entre Ríos</p>
+                  <p className="text-slate-600">Argentina</p>
                 </div>
-              </Card>
+              </div>
               
               <div className="flex gap-4 pt-4">
-                 <a href={CONTACT_INFO.instagram} target="_blank" rel="noopener noreferrer" className="bg-white p-3 rounded-full shadow-sm text-pink-600 hover:bg-pink-50 transition-colors">
-                   <Instagram className="w-6 h-6" />
-                 </a>
-                 <a href={CONTACT_INFO.facebook} target="_blank" rel="noopener noreferrer" className="bg-white p-3 rounded-full shadow-sm text-blue-600 hover:bg-blue-50 transition-colors">
-                   <Facebook className="w-6 h-6" />
-                 </a>
-                 <a href={`mailto:${CONTACT_INFO.email}`} className="bg-white p-3 rounded-full shadow-sm text-slate-900 hover:bg-slate-100 transition-colors">
-                   <Mail className="w-6 h-6" />
-                 </a>
+                 {[
+                   { href: CONTACT_INFO.instagram, icon: <Instagram className="w-6 h-6" />, color: "text-pink-600 hover:bg-pink-50" },
+                   { href: CONTACT_INFO.facebook, icon: <Facebook className="w-6 h-6" />, color: "text-blue-600 hover:bg-blue-50" },
+                   { href: `mailto:${CONTACT_INFO.email}`, icon: <Mail className="w-6 h-6" />, color: "text-slate-900 hover:bg-slate-100" }
+                 ].map((social, i) => (
+                   <motion.a 
+                    key={i}
+                    whileHover={{ y: -5 }}
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className={`bg-white p-4 rounded-2xl shadow-sm border border-slate-100 transition-colors ${social.color}`}
+                   >
+                     {social.icon}
+                   </motion.a>
+                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Contact Form */}
-          <div className="lg:w-2/3">
-            <Card className="p-6 lg:p-10">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-slate-700">Nombre Completo</label>
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="lg:w-2/3"
+          >
+            <div className="bg-white p-8 lg:p-12 rounded-[2.5rem] shadow-xl border border-slate-100 relative">
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-3">
+                    <label htmlFor="name" className="text-sm font-bold text-slate-700 uppercase tracking-wider ml-1">Nombre Completo</label>
                     <input
                       type="text"
                       id="name"
@@ -106,12 +134,12 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all"
+                      className="w-full px-6 py-4 rounded-2xl border border-slate-200 focus:border-yellow-600 focus:ring-4 focus:ring-yellow-600/10 outline-none transition-all placeholder:text-slate-400"
                       placeholder="Juan Pérez"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-slate-700">Email</label>
+                  <div className="space-y-3">
+                    <label htmlFor="email" className="text-sm font-bold text-slate-700 uppercase tracking-wider ml-1">Email</label>
                     <input
                       type="email"
                       id="email"
@@ -119,14 +147,14 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all"
+                      className="w-full px-6 py-4 rounded-2xl border border-slate-200 focus:border-yellow-600 focus:ring-4 focus:ring-yellow-600/10 outline-none transition-all placeholder:text-slate-400"
                       placeholder="juan@ejemplo.com"
                     />
                   </div>
                 </div>
                 
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-slate-700">Mensaje</label>
+                <div className="space-y-3">
+                  <label htmlFor="message" className="text-sm font-bold text-slate-700 uppercase tracking-wider ml-1">Mensaje</label>
                   <textarea
                     id="message"
                     name="message"
@@ -134,33 +162,54 @@ const Contact = () => {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all resize-none"
+                    className="w-full px-6 py-4 rounded-2xl border border-slate-200 focus:border-yellow-600 focus:ring-4 focus:ring-yellow-600/10 outline-none transition-all resize-none placeholder:text-slate-400"
                     placeholder="Describa brevemente su consulta legal..."
                   ></textarea>
                 </div>
 
-                <Button type="submit" className="w-full md:w-auto flex items-center gap-2">
-                  <Send className="w-4 h-4" />
-                  Enviar Consulta por WhatsApp
-                </Button>
+                <motion.button 
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  disabled={isSubmitting}
+                  type="submit" 
+                  className="w-full bg-slate-900 hover:bg-slate-800 text-white px-10 py-5 rounded-2xl font-bold transition-all flex items-center justify-center gap-3 shadow-xl shadow-slate-900/20 disabled:opacity-70"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Procesando...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Enviar Consulta por WhatsApp
+                    </>
+                  )}
+                </motion.button>
                 
-                <p className="text-xs text-slate-500 mt-4">
-                  * Al enviar este formulario, será redirigido a WhatsApp para continuar la conversación.
+                <p className="text-xs text-slate-500 mt-6 text-center italic">
+                  * Al enviar este formulario, se abrirá WhatsApp para finalizar el contacto.
                 </p>
               </form>
-            </Card>
-          </div>
+            </div>
+          </motion.div>
 
         </div>
       </div>
 
       {/* Out of Hours Modal */}
       {showOutOfHoursModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fade-in">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-scale-in">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md animate-fade-in">
+          <motion.div 
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            className="bg-white rounded-[2rem] shadow-2xl max-w-md w-full p-10 relative overflow-hidden"
+          >
+            <div className="absolute top-0 left-0 w-full h-2 bg-yellow-600"></div>
+            
             <button 
               onClick={() => setShowOutOfHoursModal(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600"
+              className="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
             >
               <span className="sr-only">Cerrar</span>
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -168,37 +217,45 @@ const Contact = () => {
               </svg>
             </button>
             
-            <div className="text-center space-y-4">
-              <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto text-amber-600">
-                <Clock className="w-8 h-8" />
+            <div className="text-center space-y-6">
+              <div className="w-20 h-20 bg-yellow-100 rounded-3xl flex items-center justify-center mx-auto text-yellow-600 shadow-inner">
+                <Clock className="w-10 h-10" />
               </div>
               
-              <h3 className="text-2xl font-playfair font-bold text-slate-900">
-                Fuera de Horario
-              </h3>
-              
-              <p className="text-slate-600">
-                Nuestro horario de atención para consultas inmediatas por WhatsApp es de <strong>Lunes a Viernes de {BUSINESS_HOURS.start}:00 a {BUSINESS_HOURS.end}:00 hs</strong>.
-              </p>
-              
-              <div className="bg-slate-50 p-4 rounded-lg text-sm text-slate-700 text-left">
-                <p className="font-semibold mb-2 flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 text-amber-600" />
-                  Opciones disponibles:
+              <div className="space-y-2">
+                <h3 className="text-3xl font-playfair font-bold text-slate-900">
+                  Fuera de Horario
+                </h3>
+                <p className="text-slate-600 leading-relaxed">
+                  Para una atención inmediata, nuestro horario de WhatsApp es de <br/> 
+                  <strong className="text-slate-900 text-lg">Lunes a Viernes <br/> {BUSINESS_HOURS.start}:00 a {BUSINESS_HOURS.end}:00 hs</strong>.
                 </p>
-                <ul className="list-disc list-inside space-y-1 ml-1">
-                  <li>Envíenos un email a <a href={`mailto:${CONTACT_INFO.email}`} className="text-amber-600 hover:underline">{CONTACT_INFO.email}</a></li>
-                  <li>Intente nuevamente dentro del horario de atención.</li>
+              </div>
+              
+              <div className="bg-slate-50 p-6 rounded-2xl text-sm text-slate-700 text-left border border-slate-100">
+                <p className="font-bold mb-3 flex items-center gap-2 text-slate-900">
+                  <AlertCircle className="w-4 h-4 text-yellow-600" />
+                  ¿Cómo continuar?
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 bg-yellow-600 rounded-full"></div>
+                    <span>Envía un email: <a href={`mailto:${CONTACT_INFO.email}`} className="font-bold hover:underline">{CONTACT_INFO.email}</a></span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 bg-yellow-600 rounded-full"></div>
+                    <span>Escríbenos en redes sociales.</span>
+                  </li>
                 </ul>
               </div>
 
-              <div className="pt-4">
-                <Button onClick={() => setShowOutOfHoursModal(false)} variant="outline" className="w-full">
+              <div className="pt-2">
+                <Button onClick={() => setShowOutOfHoursModal(false)} className="w-full py-4 rounded-xl">
                   Entendido
                 </Button>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       )}
     </section>

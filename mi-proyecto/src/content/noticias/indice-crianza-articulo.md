@@ -119,7 +119,7 @@ El Índice de Crianza se publica mensualmente y está disponible para toda la ci
 - **Calculadora online**: En [crianzayderechos.ar/calculadora](https://crianzayderechos.ar/calculadora/) podés calcular el costo proporcionalmente según los días de cuidado de cada familiar.
 
 ### Asesoramiento Profesional
-Siempre es recomendable consultar con profesionales del derecho especializados en derecho de familia para casos particulares.
+Siempre es recomendable consultar con profesionales del derecho de familia para casos particulares.
 
 ## Conclusión
 

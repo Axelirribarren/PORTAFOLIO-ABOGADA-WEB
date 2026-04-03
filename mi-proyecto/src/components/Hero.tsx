@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { MessageCircle, Scale, HeartHandshake, Video, ArrowRight } from "lucide-react";
 
 const Hero = () => {
@@ -17,33 +18,63 @@ const Hero = () => {
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                     
                     {/* Left Column: Content */}
-                    <div className="flex-1 text-center lg:text-left space-y-8 animate-fade-in-up">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="flex-1 text-center lg:text-left space-y-8"
+                    >
                         
                         {/* Badge */}
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-yellow-600/20 shadow-sm text-yellow-700 text-sm font-medium tracking-wide mx-auto lg:mx-0">
+                        <motion.div 
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.2, duration: 0.5 }}
+                            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-yellow-600/20 shadow-sm text-yellow-700 text-sm font-medium tracking-wide mx-auto lg:mx-0"
+                        >
                             <Scale className="w-4 h-4" />
                             <span>Derecho de Familia y Divorcios</span>
-                        </div>
+                        </motion.div>
 
                         {/* Headings */}
                         <div className="space-y-4">
-                            <h1 className="text-5xl lg:text-7xl font-playfair font-bold text-slate-900 leading-tight">
+                            <motion.h1 
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.3, duration: 0.6 }}
+                                className="text-5xl lg:text-7xl font-playfair font-bold text-slate-900 leading-tight"
+                            >
                                 Vanesa S. <br/><span className="text-yellow-600 italic">Irribarren</span>
-                            </h1>
-                            <p className="text-xl text-slate-500 font-medium">
+                            </motion.h1>
+                            <motion.p 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5, duration: 0.6 }}
+                                className="text-xl text-slate-500 font-medium"
+                            >
                                 Abogada de Familia & Mediadora
-                            </p>
+                            </motion.p>
                         </div>
 
                         {/* Description */}
-                        <p className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        <motion.p 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.6, duration: 0.6 }}
+                            className="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                        >
                             Entiendo que detrás de cada caso hay una historia y una familia. 
                             Te acompaño con contención, claridad y seriedad profesional para 
                             proteger lo que más importa.
-                        </p>
+                        </motion.p>
 
                         {/* Benefits */}
-                        <ul className="flex flex-col gap-3 max-w-md mx-auto lg:mx-0 text-slate-700">
+                        <motion.ul 
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.7, duration: 0.6 }}
+                            className="flex flex-col gap-3 max-w-md mx-auto lg:mx-0 text-slate-700"
+                        >
                             <li className="flex items-center gap-3">
                                 <span className="p-1.5 rounded-full bg-yellow-100 text-yellow-700">
                                     <HeartHandshake className="w-5 h-5" />
@@ -56,10 +87,15 @@ const Hero = () => {
                                 </span>
                                 <span className="text-sm font-medium">Consultas virtuales y presenciales</span>
                             </li>
-                        </ul>
+                        </motion.ul>
 
                         {/* Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <motion.div 
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.8, duration: 0.5 }}
+                            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4"
+                        >
                             <a
                                 href={`https://wa.me/${whatsappNumber}?text=${message}`}
                                 target="_blank"
@@ -76,28 +112,51 @@ const Hero = () => {
                                 Conocer Servicios
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </a>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Right Column: Image */}
-                    <div className="flex-1 relative animate-fade-in-left lg:animate-fade-in pl-8">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                        className="flex-1 relative pl-8"
+                    >
                         <div className="relative w-full max-w-[500px] mx-auto">
                             {/* Abstract Shapes/Blob Background */}
-                            <div className="absolute inset-0 bg-[#E8E6D9] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] rotate-3 scale-110 shadow-inner z-0"></div>
+                            <motion.div 
+                                animate={{ 
+                                    rotate: [3, -3, 3],
+                                    scale: [1.1, 1.15, 1.1]
+                                }}
+                                transition={{ 
+                                    duration: 10, 
+                                    repeat: Infinity, 
+                                    ease: "easeInOut" 
+                                }}
+                                className="absolute inset-0 bg-[#E8E6D9] rounded-[60%_40%_30%_70%/60%_30%_70%_40%] shadow-inner z-0"
+                            ></motion.div>
                             <div className="absolute -inset-4 border border-yellow-600/10 rounded-[50%_50%_40%_60%/50%_40%_60%_50%] -rotate-6 scale-110 z-0"></div>
                             
                             {/* Image Container with organic mask */}
                             <div className="relative rounded-[60%_40%_30%_70%/60%_30%_70%_40%] overflow-hidden shadow-2xl z-10 bg-white">
-                                <img
+                                <motion.img
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ duration: 0.7 }}
                                     src="/perfil.png"
                                     alt="Vanesa S. Irribarren"
-                                    className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                                    className="w-full h-auto object-cover"
                                     loading="eager"
                                 />
                             </div>
 
                             {/* Floating Card */}
-                            <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 z-20 flex items-center gap-3 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+                            <motion.div 
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 1, duration: 0.5 }}
+                                className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 z-20 flex items-center gap-3"
+                            >
                                 <div className="p-2 bg-green-100 text-green-700 rounded-full">
                                     <MessageCircle className="w-5 h-5"/>
                                 </div>
@@ -105,9 +164,9 @@ const Hero = () => {
                                     <p className="text-xs text-slate-500 font-medium uppercase">Respuesta Rápida</p>
                                     <p className="text-sm font-bold text-slate-800">Atención Online</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
-                    </div>
+                    </motion.div>
 
                 </div>
             </div>
